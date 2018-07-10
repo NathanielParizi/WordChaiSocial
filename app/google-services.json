@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "2571109449",
+    "firebase_url": "https://wordchai-b531c.firebaseio.com",
+    "project_id": "wordchai-b531c",
+    "storage_bucket": "wordchai-b531c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:2571109449:android:842d9c6e424e7d29",
+        "android_client_info": {
+          "package_name": "com.psiarb.go.wordchai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "2571109449-ierikl8n9cucc18g8g63pkf8bvutnodj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.psiarb.go.wordchai",
+            "certificate_hash": "302c9a427d5bc6696cecfdbbaefb2f56bb78fd62"
+          }
+        },
+        {
+          "client_id": "2571109449-0934ch1m1ggn6tq7j0l8avp24qv6ur5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqutQMu2w9Y9wkwD7L2niqW_BLdl1Vfdk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "2571109449-0934ch1m1ggn6tq7j0l8avp24qv6ur5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
