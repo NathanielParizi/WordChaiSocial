@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">WordChai</string>
+    <string name="app_name">ThaiChang</string>
+    <string name="LogIn">Log In</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="logIntoMyAccount">LOG INTO MY ACCOUNT</string>
+    <string name="CreateAccount">Create Account</string>
+    <string name="LogOut">Log Out</string>
+    <string name="AccountSettings">Account Settings</string>
+    <string name="BrowseUsers">Browse Users</string>
+    <string name="password">Password</string>
+    <string name="display_name">Display Name</string>
+    <string name="email">Email</string>
+    <string name="CreateANewAccount">Create a New Account</string>
+    <string name="LOGIN">logIn</string>
+    <string name="Password">Password</string>
+    <string name="Email">Email</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_status">Status</string>
+    <string name="profile_name">Profile Name</string>
+    <string name="change_image">VIEW PROFILE</string>
+    <string name="change_status">CHANGE STATUS</string>
+    <string name="profileDiscription">About Me</string>
+    <string name="updateProfile">UPDATE PROFILE</string>
+    <string name="title_activity_users">UsersActivity</string>
+    <string name="profileName">Profile Name</string>
+    <string name="profileDefaultStatus">Profile Status</string>
+    <string name="location">Location </string>
+    <string name="Age">Age</string>
+    <string name="Ponhe" />
+    <string name="Phone">Phone</string>
+    <string name="Interests">Interests</string>
 </resources>

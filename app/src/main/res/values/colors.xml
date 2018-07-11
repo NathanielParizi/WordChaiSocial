@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#b16eec</color>
+    <color name="colorPrimaryDark">#37164e</color>
+    <color name="colorAccent">#9a60ff</color>
+    <color name= "Black">#000000</color>
+    <color name= "Honeydew">#97ffb6</color>
+    <color name= "dark">#212121</color>
+    <color name= "White">#ffffff</color>
+    <color name="Clear">#00ffffff </color>
+    <color name="Fade">#c5000000</color>
+    <color name= "TransBlack">#85000000</color>
 </resources>
