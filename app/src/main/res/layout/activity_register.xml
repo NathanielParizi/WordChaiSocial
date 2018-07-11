@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".RegisterActivity">
+
+
+
+
+    <Button
+        android:id="@+id/CreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:textColorHighlight="@color/Honeydew"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:text="@string/CreateAccount"
+        android:textColor="@color/White"
+        tools:layout_editor_absoluteX="147dp"
+
+        android:layout_marginEnd="49dp"
+        android:layout_below="@+id/displayName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="111dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/displayName"
+        android:layout_above="@+id/logPassword"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="91dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/display_name"
+            android:inputType="textPersonName"
+            android:maxLength="20"
+            android:shadowColor="@color/White"
+            android:shadowRadius="15" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/logEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/logPassword"
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/White"
+            android:shadowRadius="15"
+            android:layout_above="@+id/editText5"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="19dp"
+            android:layout_weight="1"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/logPassword"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="191dp">
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/logPassword"
+            android:shadowColor="@color/White"
+            android:shadowRadius="15"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="31dp"
+            android:layout_weight="1"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
+    </android.support.design.widget.TextInputLayout>
+
+
+</RelativeLayout>
