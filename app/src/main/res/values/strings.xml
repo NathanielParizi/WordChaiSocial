@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ThaiChang</string>
+    <string name="app_name">WordChai</string>
     <string name="LogIn">Log In</string>
     <string name="SignUp">Sign Up</string>
     <string name="logIntoMyAccount">LOG INTO MY ACCOUNT</string>
