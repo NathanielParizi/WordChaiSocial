@@ -3,6 +3,7 @@
     android:id="@+id/main_app_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/gradient_backgroudn2"
 
 
     android:theme="@style/Base.ThemeOverlay.AppCompat.Dark.ActionBar">

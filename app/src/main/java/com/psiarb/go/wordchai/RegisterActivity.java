@@ -26,17 +26,18 @@ import java.util.HashMap;
 public class RegisterActivity extends AppCompatActivity {
 
 
+    private Toolbar mToolbar;
     private Button regBtn;
     private TextInputLayout mName, mEmail, mPassword;
 
-    private Toolbar mToolbar;
+  //  private Toolbar mToolbar;
     private FirebaseAuth mAuth;
 
     private ProgressDialog mRegProgress;
 
     //Databases
+    private DatabaseReference mDatabase;
 
-  //  private DatabaseReference mDatabase;
 
 
     @Override
@@ -44,18 +45,20 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mRegProgress = new ProgressDialog(this);
 
         mAuth = FirebaseAuth.getInstance();
+
+        mRegProgress = new ProgressDialog(this);
+
         mName = (TextInputLayout) findViewById(R.id.displayName);
         mEmail = (TextInputLayout) findViewById(R.id.logEmail);
         mPassword = (TextInputLayout) findViewById(R.id.logPassword);
         regBtn = (Button) findViewById(R.id.CreateAccount);
-        //  mToolbar = (Toolbar) findViewById(R.id.regPageToolbar);
+        mToolbar = (Toolbar) findViewById(R.id.regPageToolbar);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Create Account");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         regBtn.setOnClickListener(new View.OnClickListener() {
@@ -78,45 +81,56 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 
+    private void registerUser(final String display_name, final String email_name, final String password_name) {
 
-    // REGISTER USER METHOD #4 In Firebase Assistant Auth
-    private void registerUser(final String display_name, String email_name, String password_name) {
+
         mAuth.createUserWithEmailAndPassword(email_name, password_name)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         if (task.isSuccessful()) {
 
+
                             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
                             String uid = currentUser.getUid();
 
                             //CauTION HIGH RISK OF ERROR OCCURANCE
                             mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
 
+
                             HashMap<String, String> userMap = new HashMap<>();
+
+
                             userMap.put("name",display_name);
-                            userMap.put("status","Hello ThaiChang!");
+                            userMap.put("status","Hello WordChai!");
                             userMap.put("image", "default");
                             userMap.put("thumb_image", "default");
                             userMap.put("location", "");
                             userMap.put("age", "");
                             userMap.put("gender", "");
-                            userMap.put("phone","");
+                            userMap.put("lang","");
                             userMap.put("interests","");
+                            userMap.put("level","1");
+                            userMap.put("vocabArr","0");
+
+
 
                             mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
 
-                                    if(task.isSuccessful()){
 
+
+                                    if(task.isSuccessful()){
                                         mRegProgress.dismiss();
-                                        Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(mainIntent);
+                                       Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
+                                       mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                         startActivity(mainIntent);
                                         finish();
 
                                     }
@@ -125,22 +139,30 @@ public class RegisterActivity extends AppCompatActivity {
                             });
 
 
-                        } else {  Toast.makeText(RegisterActivity.this, "Please correct information and try again.",
-                                Toast.LENGTH_SHORT).show();
+
+                        } else {
+
+                            Toast.makeText(RegisterActivity.this, "Please correct information and try again.",
+                                    Toast.LENGTH_SHORT).show();
 
                             mRegProgress.hide();
                             Toast.makeText(RegisterActivity.this, "Password should contain a letter, a number, and atleast 6 characters.",
                                     Toast.LENGTH_LONG).show();
                             Toast.makeText(RegisterActivity.this, "Email must be unique.",
                                     Toast.LENGTH_LONG).show();
+
+
+
                         }
 
-
+                        // ...
                     }
                 });
-
+        
+        
 
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -151,4 +173,5 @@ public class RegisterActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

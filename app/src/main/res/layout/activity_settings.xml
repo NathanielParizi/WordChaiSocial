@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background3"
+    tools:context=".SettingsActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/settings_image"
+
+        android:layout_width="170dp"
+
+        android:layout_height="170dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="false"
+        android:background="@color/Clear"
+        android:foregroundGravity="center_horizontal"
+        android:maxHeight="1px"
+
+        android:maxWidth="1px"
+
+        android:scaleType="centerCrop"
+
+        android:src="@drawable/defaultprofileuser" />
+
+    <Button
+        android:id="@+id/settings_status_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:elevation="5dp"
+        android:foregroundGravity="center_horizontal"
+        android:paddingBottom="5dp"
+
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:text="@string/change_status"
+        android:textColor="@color/White"
+        android:textColorHighlight="@color/Honeydew"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <Button
+        android:id="@+id/viewProfile_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/settings_status_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:backgroundTint="@color/Honeydew"
+        android:elevation="5dp"
+        android:foregroundGravity="center_horizontal"
+        android:paddingBottom="5dp"
+
+
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="5dp"
+        android:text="@string/change_image"
+        android:textColor="@color/Black"
+        android:textColorHighlight="@color/White"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="224dp" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:foregroundGravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="@color/White"
+        android:shadowRadius="5"
+        android:text="@string/profile_name"
+        android:textColor="@color/Black"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/settings_image"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/profile_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:foregroundGravity="center_horizontal"
+        android:gravity="center"
+
+        android:maxLength="200"
+        android:maxLines="6"
+        android:shadowColor="@color/White"
+        android:shadowRadius="5"
+        android:text="@string/profile_status"
+        android:textColor="@color/Black"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>
