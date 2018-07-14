@@ -30,10 +30,12 @@ import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import id.zelory.compressor.Compressor;
 
 
 public class SettingsActivity extends AppCompatActivity {
@@ -269,21 +271,21 @@ public class SettingsActivity extends AppCompatActivity {
                 Bitmap thumb_file = null;
                 Bitmap thumb_bitmap = null;
 
-//
-//                try {
-//                 thumb_bitmap = new Compressor(this)
-//                           .setMaxWidth(200)
-//                            .setMaxHeight(200)
-//                            .setQuality(75)
-//                            .compressToBitmap(thumb_filePath);
-//
-//
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//
+
+                try {
+                 thumb_bitmap = new Compressor(this)
+                           .setMaxWidth(200)
+                            .setMaxHeight(200)
+                            .setQuality(75)
+                            .compressToBitmap(thumb_filePath);
+
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//                thumb_bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+                thumb_bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
                 final byte[] thumb_byte = baos.toByteArray();
 
 

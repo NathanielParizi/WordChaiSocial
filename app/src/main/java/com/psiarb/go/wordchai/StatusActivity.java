@@ -28,7 +28,7 @@ public class StatusActivity extends AppCompatActivity {
     private TextInputLayout mStatus;
     private TextInputLayout mLocation;
     private TextInputLayout mAge;
-    private TextInputLayout mPhone;
+    private TextInputLayout mLang;
     private TextInputLayout mInterests;
     private String mGender;
     private Button mMale, mFemale;
@@ -50,7 +50,7 @@ public class StatusActivity extends AppCompatActivity {
         String location_value = getIntent().getStringExtra("location_value");
         String age_value = getIntent().getStringExtra("age_value");
         String gender_value = getIntent().getStringExtra("gender_value");;
-        String phone_value = getIntent().getStringExtra("phone_value");
+        String lang_value = getIntent().getStringExtra("lang_value");
         String interests_value = getIntent().getStringExtra("interests_value");
 
 
@@ -78,14 +78,14 @@ public class StatusActivity extends AppCompatActivity {
         mAge = (TextInputLayout) findViewById(R.id.ageInput);
         mMale = (Button) findViewById(R.id.MALE);
         mFemale = (Button) findViewById(R.id.FEMALE);
-        mPhone = (TextInputLayout) findViewById(R.id.PhoneInput);
+        mLang = (TextInputLayout) findViewById(R.id.lang);
         mInterests = (TextInputLayout) findViewById(R.id.InterestsInput);
 
         mStatus.getEditText().setText(status_value);
         mLocation.getEditText().setText(location_value);
         mAge.getEditText().setText(age_value);
         mGender = gender_value;
-        mPhone.getEditText().setText(phone_value);
+        mLang.getEditText().setText(lang_value);
         mInterests.getEditText().setText(interests_value);
 
 
@@ -130,7 +130,7 @@ public class StatusActivity extends AppCompatActivity {
                 String status = mStatus.getEditText().getText().toString();
                 String location = mLocation.getEditText().getText().toString();
                 String age = mAge.getEditText().getText().toString();
-                String phone = mPhone.getEditText().getText().toString();
+                String lang = mLang.getEditText().getText().toString();
                 String interests = mInterests.getEditText().getText().toString();
                 String gender = mGender.toString();
 
@@ -202,7 +202,7 @@ public class StatusActivity extends AppCompatActivity {
                     }
                 });
 
-                mStatusDatabase.child("phone").setValue(phone).addOnCompleteListener(new OnCompleteListener<Void>() {
+                mStatusDatabase.child("lang").setValue(lang).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
 

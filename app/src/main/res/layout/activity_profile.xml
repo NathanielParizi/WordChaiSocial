@@ -1,9 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradient_background3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/profile_image"
+
+        android:layout_width="169dp"
+        android:layout_height="162dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:fadingEdge="horizontal|vertical"
+        android:fadingEdgeLength="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/Clear"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/Location"
+        android:layout_marginTop="43dp"
+        android:maxLength="20"
+        android:maxLines="1"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:text="Name"
+        android:textColor="@color/Black"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="184dp" />
+
+    <TextView
+        android:id="@+id/Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="80dp"
+        android:maxLength="11"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:textColor="@color/Black"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="434dp"
+        tools:text="Location" />
+
+    <TextView
+        android:id="@+id/Age"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Location"
+        android:layout_below="@+id/Location"
+        android:maxLength="8"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:textColor="@color/Black"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="265dp"
+        tools:text="Age" />
+
+    <TextView
+        android:id="@+id/Gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Location"
+        android:layout_below="@+id/Age"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:textColor="@color/Black"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="298dp"
+        tools:text="Gender" />
+
+    <TextView
+        android:id="@+id/lang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Location"
+        android:layout_below="@+id/Gender"
+        android:maxLength="10"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:textColor="@android:color/background_dark"
+        android:textSize="16sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="332dp"
+        tools:text="Language" />
+
+    <TextView
+        android:id="@+id/inventory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/Location"
+        android:layout_marginBottom="137dp"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:text="What I Have:"
+        android:textColor="@color/Black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/Status"
+        android:layout_width="319dp"
+        android:layout_height="93dp"
+        android:layout_above="@id/Interests"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/Location"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="180dp"
+        android:maxLength="50"
+        android:maxLines="3"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="15sp"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/Interests"
+        android:layout_width="306dp"
+
+        android:layout_height="131dp"
+        android:layout_above="@+id/inventory"
+        android:layout_alignStart="@+id/Name"
+        android:layout_marginBottom="8dp"
+        android:maxLines="8"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:textColor="@color/Black"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mystuffRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:orientation="horizontal" />
+
+</RelativeLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageStuff"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="15dp"
+
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/defaultprofileuser"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:layout_alignTop="@+id/imageStuff"
+        android:layout_marginStart="22dp"
+        android:layout_toEndOf="@+id/imageStuff"
+        android:text="@string/profileName"
+        android:textColor="@color/Black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/user_default_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/White"
+        android:shadowRadius="15"
+        android:layout_alignStart="@+id/item"
+        android:layout_below="@+id/item"
+        android:layout_marginTop="13dp"
+        android:maxLength="25"
+        android:text="@string/profileDefaultStatus" />
+
+</RelativeLayout>
