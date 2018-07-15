@@ -16,14 +16,14 @@ class SectionsPagerAdapter extends FragmentPagerAdapter{
         switch(position){
 
             case 0:
-                RequestsFragment requestFragment = new RequestsFragment();
-                return requestFragment;
+                CardsFragment CardsFragment = new CardsFragment();
+                return CardsFragment;
             case 1:
-                ChatFragment chatFragment = new ChatFragment();
-                return chatFragment;
+                MiscFragment MiscFragment = new MiscFragment();
+                return MiscFragment;
             case 2:
-                FriendsFragment friendsFragment = new FriendsFragment();
-                return friendsFragment;
+                ChatFragment ChatFragment = new ChatFragment();
+                return ChatFragment;
             default:
                 return null;
         }
@@ -41,9 +41,9 @@ class SectionsPagerAdapter extends FragmentPagerAdapter{
             case 0:
                 return "CARDS";
             case 1:
-                return "CHAT";
+                return "SETTINGS";
             case 2:
-                return "MESSAGES";
+                return "CHAT";
             default:
                 return null;
         }

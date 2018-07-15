@@ -3,11 +3,12 @@ package com.psiarb.go.wordchai;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,30 +27,32 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView mGender;
     private TextView mLang;
     private TextView mInterests;
-    private RecyclerView mystuffList;
+    private DatabaseReference mFriendReqDatabase;
 
+
+    private Button mProfileSendReqBtn;
 
 
     private ProgressDialog mProgressDialog;
 
     private DatabaseReference mUsersDatabase;
+    private FirebaseUser mCurrent_user;
 
 
+    private String mCurrent_state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        mystuffList = (RecyclerView) findViewById(R.id.mystuffRecyclerView);
-       // mystuffList = (RecyclerView) findViewById(R.id.mystuffRecyclerView);
-        mystuffList.setHasFixedSize(true);
-        mystuffList.setLayoutManager(new LinearLayoutManager(this));
 
 
-        String user_id = getIntent().getStringExtra("user_id");
+//Firebase
+        final String user_id = getIntent().getStringExtra("user_id");
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id);
-
+        mFriendReqDatabase = FirebaseDatabase.getInstance().getReference().child("Friend_req");
+        mCurrent_user = FirebaseAuth.getInstance().getCurrentUser();
 
         mProfileImageView = (ImageView) findViewById(R.id.profile_image);
         mName = (TextView) findViewById(R.id.Name);
@@ -59,6 +62,10 @@ public class ProfileActivity extends AppCompatActivity {
         mGender = (TextView) findViewById(R.id.Gender);
         mLang = (TextView) findViewById(R.id.lang);
         mInterests = (TextView) findViewById(R.id.Interests);
+        
+
+
+        mCurrent_state = "not friends";
 
         mProgressDialog = new ProgressDialog(this);
         mProgressDialog.setTitle("Loading User Data");
@@ -67,8 +74,7 @@ public class ProfileActivity extends AppCompatActivity {
         mProgressDialog.show();
 
 
-        mystuffList.setHasFixedSize(true);
-        mystuffList.setLayoutManager(new LinearLayoutManager(this));
+
 
         mUsersDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -98,11 +104,15 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
 
+
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
+
+
 
 
     }

@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/Location"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="14dp"
         android:maxLength="20"
         android:maxLines="1"
         android:shadowColor="@color/White"
@@ -42,17 +42,18 @@
         android:id="@+id/Location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
+
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="37dp"
         android:maxLength="11"
+
         android:shadowColor="@color/White"
         android:shadowRadius="15"
         android:textColor="@color/Black"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="434dp"
         tools:text="Location" />
 
     <TextView
@@ -62,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/Location"
         android:layout_below="@+id/Location"
-        android:maxLength="8"
+        android:maxLength="7"
         android:shadowColor="@color/White"
         android:shadowRadius="15"
         android:textColor="@color/Black"
@@ -144,13 +145,5 @@
         android:shadowRadius="15"
         android:textColor="@color/Black"
         android:textSize="14sp" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/mystuffRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="135dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:orientation="horizontal" />
 
 </RelativeLayout>
