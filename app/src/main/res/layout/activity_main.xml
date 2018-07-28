@@ -8,6 +8,36 @@
 
     tools:context=".MainActivity">
 
+    <fragment
+        android:id="@+id/fragment4"
+        android:name="com.psiarb.go.wordchai.ChatFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="137dp"
+        android:layout_marginTop="251dp" />
+
+    <fragment
+        android:id="@+id/container_a"
+        android:name="com.psiarb.go.wordchai.MiscFragment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="165dp" />
+
+    <fragment
+        android:id="@+id/container_b"
+        android:name="com.psiarb.go.wordchai.CardsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="142dp" />
+
+
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -22,23 +52,25 @@
 
             android:id="@+id/main_tabs"
             app:tabTextColor="@color/White"
-
             app:tabSelectedTextColor="@color/Honeydew"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:background="@color/TransBlack"
             app:tabIndicatorColor="@color/Honeydew"></android.support.design.widget.TabLayout>
+
+
 
 
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/main_tabPager"
-        android:background="@drawable/gradient_background3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/appBarLayout"></android.support.v4.view.ViewPager>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/gradient_background3"></android.support.v4.view.ViewPager>
+
 
 
 

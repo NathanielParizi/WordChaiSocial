@@ -63,6 +63,8 @@ public class SettingsActivity extends AppCompatActivity {
     private String mInterests;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

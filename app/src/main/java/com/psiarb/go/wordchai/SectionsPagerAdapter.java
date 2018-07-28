@@ -41,7 +41,7 @@ class SectionsPagerAdapter extends FragmentPagerAdapter{
             case 0:
                 return "CARDS";
             case 1:
-                return "SETTINGS";
+                return "DECK";
             case 2:
                 return "CHAT";
             default:
