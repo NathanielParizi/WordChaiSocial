@@ -1,22 +1,28 @@
 package com.psiarb.go.wordchai;
 
-import java.io.IOException;
-
 public class Persian_to_EnglishB {
 
-    public static void main(String[] args) throws IOException {
+    public String[] persian_to_English_ParserB(String[] arr){
 
-        String farsi = farsi();
-
-
-        String lines[] = farsi.split(System.getProperty("line.separator"));
+        String farsiB = farsiParserB();
+        String lines[] = farsiB.split(System.getProperty("line.separator"));
 
 
-        //  System.out.println(lines[4999]);
 
+
+
+        for(int i=0; i<263; i++){
+
+            arr[i]=lines[i];
+
+        }
+
+        //   [4737]  CARDS IN THIS BANK
+
+        return arr;
     }
 
-    private static String farsi() {
+    private static String farsiParserB() {
 
 
         return "یونجه\r\n" +
@@ -282,7 +288,7 @@ public class Persian_to_EnglishB {
                 "عذرخواهی\r\n" +
                 "تا" + "\r\n" +
                 "ژنراتور\r\n" +
-                "";
+                ""; //263
 
 
     }

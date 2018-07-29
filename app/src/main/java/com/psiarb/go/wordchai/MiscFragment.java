@@ -26,7 +26,7 @@ public class MiscFragment extends Fragment {
 
     public interface MiscFragmentListener{
 
-        public void createCardDeck(int start, int beginning);
+        public void createCardDeck(int start, int beginning, String target, String source);
     }
 
     @Override
@@ -56,6 +56,7 @@ public class MiscFragment extends Fragment {
 
 
 
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +67,7 @@ public class MiscFragment extends Fragment {
         });
 
 
+
         // Inflate the layout for this fragment
         return view;
     }
@@ -73,10 +75,12 @@ public class MiscFragment extends Fragment {
     public void buttonClicked(View view){
 
 
-        int start = 7;
-        int end = 10;
+        int start = 1;
+        int end = start+24;
+        String source = "Persian";
+        String target = "English";
 
-        miscFragmentListener.createCardDeck(start, end);
+        miscFragmentListener.createCardDeck(start, end, target, source);
 
     }
 

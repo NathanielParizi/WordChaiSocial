@@ -1,7 +1,6 @@
 package com.psiarb.go.wordchai;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -17,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity implements MiscFragment.MiscFragmentListener, CardsFragment.CardsFragmentListener{
 
 
+
     private FirebaseAuth mAuth;
     private Toolbar mToolbar;
     private ViewPager mViewPager;
@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
 
     private TabLayout mTabLayout;
 
-    
-    //**************SharedPreferences Storage
-    SharedPreferences settings;
-    private static final String PREFS_NAME= "myPrefsFile";
+
+
+
+    private static int[] ENG_correct = new int[5000];
+    private static int[] ENG_total = new int[5000];
+
 
 
 
@@ -35,18 +37,37 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
 
 
     @Override
-    public void createCardDeck(int start, int end) {
+    public void createCardDeck(int start, int end, String target, String source) {
+
+        System.out.println("************createCardDeck Called" + ENG_correct[1]);
 
         CardsFragment cardsFragment = (CardsFragment) getSupportFragmentManager().findFragmentById(R.id.container_b);
-        cardsFragment.setCardDeck(start, end);
+        cardsFragment.setCardDeck(start, end, target, source);
+
+
+
+
+
     }
+
+
 
     @Override
     public void passCardData(int[] correct, int[] total) {
-        System.out.println("**************TEST SUCCESS************ " + correct[1]);
+
+        System.out.println("***********passCardData called " + correct[1]);
+
+        ENG_correct = correct;
+        ENG_total = total;
+
 
         CardsFragment cardsFragment = (CardsFragment) getSupportFragmentManager().findFragmentById(R.id.container_b);
-        cardsFragment.retrieveData(correct, total);
+
+
+
+
+
+
     }
 
     @Override
@@ -55,24 +76,23 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
         setContentView(R.layout.activity_main);
 
 
+        System.out.println("**************onCreate called " + ENG_correct[1]);
 
 
         mAuth = FirebaseAuth.getInstance();
-
         mToolbar = (Toolbar) findViewById(R.id.mainPageToolbar);
         mViewPager = (ViewPager) findViewById(R.id.main_tabPager);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabLayout = (TabLayout) findViewById(R.id.main_tabs);
         mTabLayout.setupWithViewPager(mViewPager);
-
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("WordChai");
 
 
         Typeface typefaceENG = Typeface.createFromAsset(getApplication().getAssets(), "chibi.ttf");
 
 
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("WordChai");
 
 
 
@@ -84,6 +104,10 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
+
+        System.out.println("**************onStart called " + ENG_correct[1]);
+
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser == null){
@@ -106,6 +130,8 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
     }
 
     private void sendToStart() {
+
+
 
         Intent startIntent = new Intent(MainActivity.this,StartActivity.class);
         startActivity(startIntent);
@@ -140,6 +166,9 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
         return true;
 
     }
+
+
+
 
 
 

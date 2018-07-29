@@ -1,28 +1,33 @@
 package com.psiarb.go.wordchai;
 
-import java.io.IOException;
-
 public class Persian_to_English {
 
-    public static void main(String[] args) throws IOException {
 
-        String farsi = farsi();
+    public String[] persian_to_English_Parser(String[] arr){
 
-
+        String farsi = farsiParser();
         String lines[] = farsi.split(System.getProperty("line.separator"));
 
 
-      //  System.out.println(lines[4999]);
 
+        for(int i=0; i<4737; i++){
+
+            arr[i]=lines[i];
+
+        }
+
+        //   [4737]  CARDS IN THIS BANK
+
+        return arr;
     }
 
-    private static String farsi() {
+    private static String farsiParser() {
 
     return  "این\r\n" +
             "بودن\r\n" +
             "و\r\n" +
             "از\r\n" +
-            "a\r\n" +
+            "-\r\n" +
             "که در\r\n" +
             "به\r\n" +
             "دارند\r\n" +
@@ -4754,8 +4759,8 @@ public class Persian_to_English {
             "پدربزرگ و مادربزرگ\r\n" +
             "قانونگذار\r\n" +
             "سوپر مارکت\r\n" +
-            "کشتی تفریحی\r\n" +
-            "";
+            "کشتی تفریحی\r\n" +    //4736
+            "";    //4737
 
     }
 
