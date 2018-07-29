@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity implements MiscFragment.MiscFragmentListener{
+public class MainActivity extends AppCompatActivity implements MiscFragment.MiscFragmentListener, CardsFragment.CardsFragmentListener{
 
 
     private FirebaseAuth mAuth;
@@ -22,10 +22,15 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    private SharedPreferences myPrefs;
-    private static final String PREFS_NAME = "myPrefsFile";
-
     private TabLayout mTabLayout;
+
+    
+    //**************SharedPreferences Storage
+    SharedPreferences settings;
+    private static final String PREFS_NAME= "myPrefsFile";
+
+
+
 
 
 
@@ -34,6 +39,14 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
 
         CardsFragment cardsFragment = (CardsFragment) getSupportFragmentManager().findFragmentById(R.id.container_b);
         cardsFragment.setCardDeck(start, end);
+    }
+
+    @Override
+    public void passCardData(int[] correct, int[] total) {
+        System.out.println("**************TEST SUCCESS************ " + correct[1]);
+
+        CardsFragment cardsFragment = (CardsFragment) getSupportFragmentManager().findFragmentById(R.id.container_b);
+        cardsFragment.retrieveData(correct, total);
     }
 
     @Override
