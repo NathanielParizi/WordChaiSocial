@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
 
     private TabLayout mTabLayout;
 
+    private static String targetLang;
+
 
 
 
@@ -34,12 +37,25 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
 
 
 
+    public void initializeTarget() {
+
+        System.out.println("********Intitialized CardsFragment with " + targetLang);
+
+        CardsFragment cardsFragment = (CardsFragment) getSupportFragmentManager().findFragmentById(R.id.container_b);
+        cardsFragment.initializeSourceDeck(targetLang);
+
+
+
+    }
 
 
     @Override
     public void createCardDeck(int start, int end, String target, String source) {
 
         System.out.println("************createCardDeck Called" + ENG_correct[1]);
+        targetLang = target;
+
+
 
         CardsFragment cardsFragment = (CardsFragment) getSupportFragmentManager().findFragmentById(R.id.container_b);
         cardsFragment.setCardDeck(start, end, target, source);
@@ -49,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
 
 
     }
+
+
 
 
 
@@ -88,6 +106,17 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
         mTabLayout.setupWithViewPager(mViewPager);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("WordChai");
+
+        //Initialize Target Language
+        if(targetLang == null){
+            Bundle extras = getIntent().getExtras();
+            if(extras != null){
+                targetLang = extras.getString("TargetLanguage");
+                Toast.makeText(getApplicationContext(),targetLang,Toast.LENGTH_SHORT).show();
+            }
+
+            initializeTarget();
+        }
 
 
         Typeface typefaceENG = Typeface.createFromAsset(getApplication().getAssets(), "chibi.ttf");
