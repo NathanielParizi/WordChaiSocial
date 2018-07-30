@@ -9,14 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements MiscFragment.MiscFragmentListener, CardsFragment.CardsFragmentListener{
 
-
+    private Typeface typeface;
 
     private FirebaseAuth mAuth;
     private Toolbar mToolbar;
@@ -43,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
 
         CardsFragment cardsFragment = (CardsFragment) getSupportFragmentManager().findFragmentById(R.id.container_b);
         cardsFragment.initializeSourceDeck(targetLang);
+
 
 
 
@@ -96,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
 
         System.out.println("**************onCreate called " + ENG_correct[1]);
 
+        typeface = Typeface.createFromAsset(getAssets(),"chibi.ttf");
+
 
         mAuth = FirebaseAuth.getInstance();
         mToolbar = (Toolbar) findViewById(R.id.mainPageToolbar);
@@ -105,6 +107,8 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
         mTabLayout = (TabLayout) findViewById(R.id.main_tabs);
         mTabLayout.setupWithViewPager(mViewPager);
         setSupportActionBar(mToolbar);
+
+
         getSupportActionBar().setTitle("WordChai");
 
         //Initialize Target Language
@@ -112,15 +116,20 @@ public class MainActivity extends AppCompatActivity implements MiscFragment.Misc
             Bundle extras = getIntent().getExtras();
             if(extras != null){
                 targetLang = extras.getString("TargetLanguage");
-                Toast.makeText(getApplicationContext(),targetLang,Toast.LENGTH_SHORT).show();
+
+
+
             }
 
             initializeTarget();
+
         }
 
 
         Typeface typefaceENG = Typeface.createFromAsset(getApplication().getAssets(), "chibi.ttf");
 
+        MiscFragment miscFragment = (MiscFragment) getSupportFragmentManager().findFragmentById(R.id.container_a);
+        miscFragment.setSourceTargetLanguages(targetLang);
 
 
 

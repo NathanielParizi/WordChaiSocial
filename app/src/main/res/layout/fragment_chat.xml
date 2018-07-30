@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/chat_list"
-        android:layout_width="match_parent"
-
-        android:layout_height="500dp" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/comingsoon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/chat_list"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:layout_alignParentTop="true"
 
-
-</FrameLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="237dp"
+        android:gravity="center"
+        android:shadowColor="@color/White"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="3"
+        android:text="Coming Soon"
+        android:textColor="@color/Black"
+        android:textSize="25sp" />
+</RelativeLayout>

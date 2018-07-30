@@ -7,24 +7,123 @@
     tools:context=".MiscFragment">
 
 
-        <Button
-            android:id="@+id/btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Button" />
+        <GridView
 
-        <EditText
-            android:id="@+id/strEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="257dp"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="147dp"
-            android:inputType="textPersonName"
-            android:text="Cool" />
+            android:layout_marginTop="310dp"
+            android:numColumns="3"
+            android:stretchMode="columnWidth" />
 
+        <Spinner
+            android:id="@+id/spinnerSource"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="174dp" />
 
+        <Spinner
+            android:id="@+id/spinnerTarget"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/spinnerSource"
+            android:layout_marginEnd="25dp" />
+
+        <Spinner
+            android:id="@+id/spinnerLevel"
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/spinnerSource"
+            android:layout_marginTop="256dp" />
+
+        <TextView
+            android:id="@+id/levelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/spinnerSource"
+            android:layout_marginTop="226dp"
+            android:shadowColor="@color/White"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="3"
+            android:text="@string/select_level"
+            android:textColor="@color/Black"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/sourceTxt"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/spinnerSource"
+            android:layout_marginTop="150dp"
+
+            android:shadowColor="@color/White"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="3"
+            android:text="@string/selectSource"
+            android:textColor="@color/Black"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/targetTxt"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/spinnerTarget"
+            android:layout_alignTop="@+id/sourceTxt"
+            android:shadowColor="@color/White"
+
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="3"
+            android:text="@string/selectTarget"
+            android:textColor="@color/Black"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/decksTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/gridView"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="-310dp"
+            android:layout_marginStart="121dp"
+            android:shadowColor="@color/White"
+            android:paddingBottom="4dp"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="3"
+            android:text="@string/decksTxt"
+            android:textColor="@color/Black"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/loadBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/spinnerTarget"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="219dp"
+            android:backgroundTint="@color/Honeydew"
+
+            android:elevation="5dp"
+            android:foregroundGravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/load"
+            android:textColor="@color/Black"
+            android:textColorHighlight="@color/White" />
 
 
 </RelativeLayout>

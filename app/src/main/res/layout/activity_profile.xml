@@ -90,8 +90,9 @@
         android:id="@+id/lang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/Location"
-        android:layout_below="@+id/Gender"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/inventory"
+        android:layout_marginStart="128dp"
         android:maxLength="10"
         android:shadowColor="@color/White"
         android:shadowRadius="15"
@@ -110,7 +111,7 @@
         android:layout_marginBottom="137dp"
         android:shadowColor="@color/White"
         android:shadowRadius="15"
-        android:text="What I Have:"
+        android:text="I Am Learning:"
         android:textColor="@color/Black"
         android:textSize="16sp" />
 

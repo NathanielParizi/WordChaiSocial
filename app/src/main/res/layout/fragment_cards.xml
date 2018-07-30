@@ -11,32 +11,116 @@
         <TextView
             android:id="@+id/TargetLang"
             android:layout_width="match_parent"
-            android:layout_height="189dp"
+            android:layout_height="122dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="103dp"
             android:gravity="center"
-            android:text=""
+            android:text="@string/emptyTargetLang"
             android:textSize="25sp" />
 
         <Button
-            android:id="@+id/Abtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/OKBtn"
+            android:layout_width="72dp"
+            android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="59dp"
+            android:autoSizeMaxTextSize="@dimen/fab_margin"
+            android:backgroundTint="@color/Honeydew"
+            android:elevation="5dp"
+            android:foregroundGravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:text="OK"
+            android:textColor="@color/Black"
+            android:textColorHighlight="@color/White"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/switchBtn"
+            android:layout_width="72dp"
+            android:layout_height="59dp"
+            android:autoSizeMaxTextSize="@dimen/fab_margin"
+            android:layout_alignParentBottom="true"
+
+            android:layout_toStartOf="@+id/OKBtn"
+            android:backgroundTint="@color/Honeydew"
+            android:elevation="5dp"
+            android:foregroundGravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:text="Switch"
+            android:textColor="@color/Black"
+            android:textColorHighlight="@color/White"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/speakerBtn"
+            android:layout_width="72dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:autoSizeMaxTextSize="@dimen/fab_margin"
+            android:layout_toStartOf="@+id/switchBtn"
+            android:backgroundTint="@color/Honeydew"
+            android:elevation="5dp"
+            android:foregroundGravity="center_horizontal"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:text="Speak"
+            android:textColor="@color/Black"
+            android:textColorHighlight="@color/White"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/A"
+            android:layout_width="match_parent"
+            android:textColor="@color/White"
+
+            android:layout_height="60dp"
+            android:layout_below="@+id/TargetLang"
+            android:layout_centerHorizontal="true"
+            android:background="@color/TransBlack"
             android:text="Button" />
 
         <Button
-            android:id="@+id/load"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/B"
+            android:layout_width="match_parent"
+            android:textColor="@color/White"
+            android:layout_height="60dp"
+            android:layout_below="@+id/A"
+            android:background="@color/TransBlack"
+
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="155dp"
-            android:text="load" />
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/C"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_below="@+id/B"
+            android:background="@color/TransBlack"
+            android:textColor="@color/White"
+
+            android:layout_centerHorizontal="true"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/D"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/TransBlack"
+            android:textColor="@color/White"
+
+            android:layout_below="@+id/C"
+            android:layout_centerHorizontal="true"
+            android:text="Button" />
 
 
 </RelativeLayout>

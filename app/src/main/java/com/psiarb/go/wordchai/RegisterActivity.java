@@ -10,7 +10,10 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,12 +26,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
 
 
     private Toolbar mToolbar;
     private Button regBtn;
     private TextInputLayout mName, mEmail, mPassword;
+    private Spinner langSpinner;
+    private static String myLanguage = "";
 
   //  private Toolbar mToolbar;
     private FirebaseAuth mAuth;
@@ -55,10 +60,17 @@ public class RegisterActivity extends AppCompatActivity {
         mPassword = (TextInputLayout) findViewById(R.id.logPassword);
         regBtn = (Button) findViewById(R.id.CreateAccount);
         mToolbar = (Toolbar) findViewById(R.id.regPageToolbar);
+        langSpinner = (Spinner) findViewById(R.id.langSpinner);
+
+        ArrayAdapter<String> mySpinnerAdapter = new ArrayAdapter<String>(RegisterActivity.this, android.R.layout.simple_list_item_1,
+                getResources().getStringArray(R.array.languages));
+        mySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        langSpinner.setAdapter(mySpinnerAdapter);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle("Create Account");
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       langSpinner.setOnItemSelectedListener(this);
 
 
         regBtn.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
                             userMap.put("location", "");
                             userMap.put("age", "");
                             userMap.put("gender", "");
-                            userMap.put("lang","");
+                            userMap.put("lang", myLanguage);
                             userMap.put("interests","");
                             userMap.put("level","1");
                             userMap.put("vocabArr","0");
@@ -130,6 +142,10 @@ public class RegisterActivity extends AppCompatActivity {
                                         mRegProgress.dismiss();
                                        Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
                                        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                                       mainIntent.putExtra("TargetLanguage", myLanguage);
+
+
                                          startActivity(mainIntent);
                                         finish();
 
@@ -174,4 +190,15 @@ public class RegisterActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String languageText = adapterView.getItemAtPosition(i).toString();
+        myLanguage = languageText;
+     //   Toast.makeText(adapterView.getContext(),myLanguage + " selected",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }
